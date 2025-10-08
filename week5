@@ -1,1 +1,925 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid #1a2a6c;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            border-radius: 0 5px 5px 0;
+            overflow-x: auto;
+        }
+        
+        button {
+            background: #1a2a6c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #0d1a4a;
+        }
+        
+        .output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            min-height: 50px;
+            border-left: 4px solid #b21f1f;
+        }
+        
+        .interactive-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .input-group {
+            margin: 15px 0;
+        }
+        
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript Learning Project</h1>
+            <p class="subtitle">Demonstrating Variables, Conditionals, Functions, Loops, and DOM Manipulation</p>
+        </header>
+        
+        <div class="content-grid">
+            <!-- Part 1: Variables and Conditionals -->
+            <div class="card">
+                <h2>Part 1: Variables & Conditionals</h2>
+                <p>This section demonstrates variable declarations and conditional statements.</p>
+                
+                <div class="code-block">
+// Variable declarations
+let userName = "Visitor";
+let userAge = 25;
+let isSubscribed = true;
+const MAX_AGE = 100;
+
+// Conditional example
+if (userAge >= 18) {
+    console.log("You are an adult");
+} else {
+    console.log("You are a minor");
+}
+                </div>
+                
+                <button id="checkAgeBtn">Check Age Status</button>
+                <button id="toggleSubscriptionBtn">Toggle Subscription</button>
+                
+                <div class="output" id="part1Output">
+                    Output will appear here...
+                </div>
+            </div>
+            
+            <!-- Part 2: Custom Functions -->
+            <div class="card">
+                <h2>Part 2: Custom Functions</h2>
+                <p>This section demonstrates custom function creation and usage.</p>
+                
+                <div class="code-block">
+// Function to calculate area of a rectangle
+function calculateArea(width, height) {
+    return width * height;
+}
+
+// Function with default parameter
+function greetUser(name = "Guest") {
+    return `Hello, ${name}! Welcome to our site.`;
+}
+                </div>
+                
+                <div class="input-group">
+                    <label for="widthInput">Width:</label>
+                    <input type="number" id="widthInput" value="10">
+                </div>
+                
+                <div class="input-group">
+                    <label for="heightInput">Height:</label>
+                    <input type="number" id="heightInput" value="5">
+                </div>
+                
+                <button id="calculateAreaBtn">Calculate Area</button>
+                <button id="greetUserBtn">Greet User</button>
+                
+                <div class="output" id="part2Output">
+                    Output will appear here...
+                </div>
+            </div>
+            
+            <!-- Part 3: Loops -->
+            <div class="card">
+                <h2>Part 3: Loops</h2>
+                <p>This section demonstrates different types of loops in JavaScript.</p>
+                
+                <div class="code-block">
+// For loop example
+for (let i = 1; i <= 5; i++) {
+    console.log(`Count: ${i}`);
+}
+
+// While loop example
+let count = 1;
+while (count <= 5) {
+    console.log(`While count: ${count}`);
+    count++;
+}
+                </div>
+                
+                <button id="runForLoopBtn">Run For Loop</button>
+                <button id="runWhileLoopBtn">Run While Loop</button>
+                
+                <div class="output" id="part3Output">
+                    Output will appear here...
+                </div>
+            </div>
+        </div>
+        
+        <!-- Part 4: DOM Interactions -->
+        <div class="interactive-section">
+            <h2>Part 4: DOM Interactions</h2>
+            <p>This section demonstrates DOM manipulation and event handling.</p>
+            
+            <div class="input-group">
+                <label for="textInput">Enter text to display:</label>
+                <input type="text" id="textInput" placeholder="Type something here...">
+            </div>
+            
+            <div class="input-group">
+                <label for="colorSelect">Select text color:</label>
+                <select id="colorSelect">
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
+            </div>
+            
+            <button id="updateTextBtn">Update Display Text</button>
+            <button id="changeBgColorBtn">Change Background Color</button>
+            <button id="addItemBtn">Add List Item</button>
+            <button id="resetBtn">Reset All</button>
+            
+            <div class="output" id="part4Output">
+                <p id="displayText">This text will be updated based on your input.</p>
+                <ul id="itemList">
+                    <li>Sample item 1</li>
+                    <li>Sample item 2</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>JavaScript Learning Project &copy; 2023 | Demonstrating Core JavaScript Concepts</p>
+        </footer>
+    </div>
+
+    <script>
+        // ============================================
+        // PART 1: VARIABLES AND CONDITIONALS
+        // ============================================
+        
+        // Variable declarations
+        let userName = "Visitor";
+        let userAge = 25;
+        let isSubscribed = true;
+        const MAX_AGE = 100;
+        
+        // DOM elements for Part 1
+        const checkAgeBtn = document.getElementById('checkAgeBtn');
+        const toggleSubscriptionBtn = document.getElementById('toggleSubscriptionBtn');
+        const part1Output = document.getElementById('part1Output');
+        
+        // Event listeners for Part 1
+        checkAgeBtn.addEventListener('click', function() {
+            // Conditional example
+            let ageStatus;
+            if (userAge < 18) {
+                ageStatus = "You are a minor";
+            } else if (userAge >= 18 && userAge < 65) {
+                ageStatus = "You are an adult";
+            } else {
+                ageStatus = "You are a senior";
+            }
+            
+            part1Output.innerHTML = `
+                <p><strong>User Info:</strong></p>
+                <p>Name: ${userName}</p>
+                <p>Age: ${userAge}</p>
+                <p>Subscription: ${isSubscribed ? 'Active' : 'Inactive'}</p>
+                <p><strong>Age Status:</strong> ${ageStatus}</p>
+            `;
+        });
+        
+        toggleSubscriptionBtn.addEventListener('click', function() {
+            // Toggle the subscription status
+            isSubscribed = !isSubscribed;
+            part1Output.innerHTML = `
+                <p>Subscription status toggled!</p>
+                <p>New subscription status: <strong>${isSubscribed ? 'Active' : 'Inactive'}</strong></p>
+            `;
+        });
+        
+        // ============================================
+        // PART 2: CUSTOM FUNCTIONS
+        // ============================================
+        
+        // Function to calculate area of a rectangle
+        function calculateArea(width, height) {
+            return width * height;
+        }
+        
+        // Function with default parameter
+        function greetUser(name = "Guest") {
+            return `Hello, ${name}! Welcome to our site.`;
+        }
+        
+        // DOM elements for Part 2
+        const calculateAreaBtn = document.getElementById('calculateAreaBtn');
+        const greetUserBtn = document.getElementById('greetUserBtn');
+        const widthInput = document.getElementById('widthInput');
+        const heightInput = document.getElementById('heightInput');
+        const part2Output = document.getElementById('part2Output');
+        
+        // Event listeners for Part 2
+        calculateAreaBtn.addEventListener('click', function() {
+            const width = parseFloat(widthInput.value);
+            const height = parseFloat(heightInput.value);
+            
+            if (isNaN(width) || isNaN(height)) {
+                part2Output.innerHTML = "<p style='color:red;'>Please enter valid numbers for width and height.</p>";
+                return;
+            }
+            
+            const area = calculateArea(width, height);
+            part2Output.innerHTML = `
+                <p>Rectangle dimensions: ${width} × ${height}</p>
+                <p><strong>Area:</strong> ${area}</p>
+            `;
+        });
+        
+        greetUserBtn.addEventListener('click', function() {
+            const greeting = greetUser(userName);
+            part2Output.innerHTML = `<p>${greeting}</p>`;
+        });
+        
+        // ============================================
+        // PART 3: LOOPS
+        // ============================================
+        
+        // DOM elements for Part 3
+        const runForLoopBtn = document.getElementById('runForLoopBtn');
+        const runWhileLoopBtn = document.getElementById('runWhileLoopBtn');
+        const part3Output = document.getElementById('part3Output');
+        
+        // Event listeners for Part 3
+        runForLoopBtn.addEventListener('click', function() {
+            let output = "<p><strong>For Loop Output:</strong></p>";
+            
+            // For loop example
+            for (let i = 1; i <= 5; i++) {
+                output += `<p>Count: ${i}</p>`;
+            }
+            
+            part3Output.innerHTML = output;
+        });
+        
+        runWhileLoopBtn.addEventListener('click', function() {
+            let output = "<p><strong>While Loop Output:</strong></p>";
+            
+            // While loop example
+            let count = 1;
+            while (count <= 5) {
+                output += `<p>While count: ${count}</p>`;
+                count++;
+            }
+            
+            part3Output.innerHTML = output;
+        });
+        
+        // ============================================
+        // PART 4: DOM INTERACTIONS
+        // ============================================
+        
+        // DOM elements for Part 4
+        const textInput = document.getElementById('textInput');
+        const colorSelect = document.getElementById('colorSelect');
+        const updateTextBtn = document.getElementById('updateTextBtn');
+        const changeBgColorBtn = document.getElementById('changeBgColorBtn');
+        const addItemBtn = document.getElementById('addItemBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const displayText = document.getElementById('displayText');
+        const itemList = document.getElementById('itemList');
+        const part4Output = document.getElementById('part4Output');
+        
+        // Event listeners for Part 4
+        updateTextBtn.addEventListener('click', function() {
+            // DOM Interaction 1: Changing text content
+            if (textInput.value.trim() !== "") {
+                displayText.textContent = textInput.value;
+            } else {
+                displayText.textContent = "Please enter some text first!";
+            }
+        });
+        
+        changeBgColorBtn.addEventListener('click', function() {
+            // DOM Interaction 2: Changing styles
+            const selectedColor = colorSelect.value;
+            displayText.style.color = selectedColor;
+            
+            // Also update the text to show the color change
+            displayText.textContent = `This text is now ${selectedColor}!`;
+        });
+        
+        addItemBtn.addEventListener('click', function() {
+            // DOM Interaction 3: Adding new elements
+            const newItem = document.createElement('li');
+            const itemNumber = itemList.children.length + 1;
+            newItem.textContent = `New item ${itemNumber} added via DOM`;
+            itemList.appendChild(newItem);
+        });
+        
+        resetBtn.addEventListener('click', function() {
+            // Reset all DOM changes
+            displayText.textContent = "This text will be updated based on your input.";
+            displayText.style.color = "black";
+            textInput.value = "";
+            colorSelect.value = "black";
+            
+            // Remove all but the first two list items
+            while (itemList.children.length > 2) {
+                itemList.removeChild(itemList.lastChild);
+            }
+        });
+    </script>
+</body>
+</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #1a2a6c;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: #1a2a6c;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fdbb2d;
+    font-size: 1.5rem;
+}
+
+.code-block {
+    background: #f8f9fa;
+    border-left: 4px solid #1a2a6c;
+    padding: 15px;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    border-radius: 0 5px 5px 0;
+    overflow-x: auto;
+    line-height: 1.4;
+    color: #333;
+}
+
+button {
+    background: #1a2a6c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    background: #0d1a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.output {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    min-height: 50px;
+    border-left: 4px solid #b21f1f;
+    font-size: 0.95rem;
+}
+
+.interactive-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-group {
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1a2a6c;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 0.95rem;
+    transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 2px rgba(26, 42, 108, 0.2);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: white;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Animation for output sections */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.output {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .code-block {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}
+
+/* Additional utility classes */
+.highlight {
+    background-color: #fffacd;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.note {
+    background-color: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.success {
+    color: #2e7d32;
+}
+
+.error {
+    color: #c62828;
+}
+// ============================================
+// PART 1: VARIABLES AND CONDITIONALS
+// ============================================
+
+// Variable declarations demonstrating different data types
+let userName = "Visitor";        // String variable
+let userAge = 25;               // Number variable
+let isSubscribed = true;        // Boolean variable
+const MAX_AGE = 100;            // Constant variable
+
+// DOM elements for Part 1
+const checkAgeBtn = document.getElementById('checkAgeBtn');
+const toggleSubscriptionBtn = document.getElementById('toggleSubscriptionBtn');
+const part1Output = document.getElementById('part1Output');
+
+// Event listener for checking age status
+checkAgeBtn.addEventListener('click', function() {
+    // Conditional statements to determine age category
+    let ageStatus;
+    if (userAge < 18) {
+        ageStatus = "You are a minor";
+    } else if (userAge >= 18 && userAge < 65) {
+        ageStatus = "You are an adult";
+    } else {
+        ageStatus = "You are a senior";
+    }
+    
+    // Display results in the output section
+    part1Output.innerHTML = `
+        <p><strong>User Info:</strong></p>
+        <p>Name: ${userName}</p>
+        <p>Age: ${userAge}</p>
+        <p>Subscription: ${isSubscribed ? 'Active' : 'Inactive'}</p>
+        <p><strong>Age Status:</strong> ${ageStatus}</p>
+    `;
+});
+
+// Event listener for toggling subscription status
+toggleSubscriptionBtn.addEventListener('click', function() {
+    // Toggle the boolean subscription status
+    isSubscribed = !isSubscribed;
+    part1Output.innerHTML = `
+        <p>Subscription status toggled!</p>
+        <p>New subscription status: <strong>${isSubscribed ? 'Active' : 'Inactive'}</strong></p>
+    `;
+});
+
+// ============================================
+// PART 2: CUSTOM FUNCTIONS
+// ============================================
+
+/**
+ * Function to calculate area of a rectangle
+ * @param {number} width - The width of the rectangle
+ * @param {number} height - The height of the rectangle
+ * @returns {number} The calculated area
+ */
+function calculateArea(width, height) {
+    return width * height;
+}
+
+/**
+ * Function with default parameter to greet user
+ * @param {string} name - The name of the user (defaults to "Guest")
+ * @returns {string} A personalized greeting message
+ */
+function greetUser(name = "Guest") {
+    return `Hello, ${name}! Welcome to our site.`;
+}
+
+// DOM elements for Part 2
+const calculateAreaBtn = document.getElementById('calculateAreaBtn');
+const greetUserBtn = document.getElementById('greetUserBtn');
+const widthInput = document.getElementById('widthInput');
+const heightInput = document.getElementById('heightInput');
+const part2Output = document.getElementById('part2Output');
+
+// Event listener for calculating area
+calculateAreaBtn.addEventListener('click', function() {
+    // Get input values and convert to numbers
+    const width = parseFloat(widthInput.value);
+    const height = parseFloat(heightInput.value);
+    
+    // Input validation
+    if (isNaN(width) || isNaN(height)) {
+        part2Output.innerHTML = "<p style='color:red;'>Please enter valid numbers for width and height.</p>";
+        return;
+    }
+    
+    // Call the custom function and display result
+    const area = calculateArea(width, height);
+    part2Output.innerHTML = `
+        <p>Rectangle dimensions: ${width} × ${height}</p>
+        <p><strong>Area:</strong> ${area}</p>
+    `;
+});
+
+// Event listener for greeting user
+greetUserBtn.addEventListener('click', function() {
+    // Call the custom function and display result
+    const greeting = greetUser(userName);
+    part2Output.innerHTML = `<p>${greeting}</p>`;
+});
+
+// ============================================
+// PART 3: LOOPS
+// ============================================
+
+// DOM elements for Part 3
+const runForLoopBtn = document.getElementById('runForLoopBtn');
+const runWhileLoopBtn = document.getElementById('runWhileLoopBtn');
+const part3Output = document.getElementById('part3Output');
+
+// Event listener for running for loop
+runForLoopBtn.addEventListener('click', function() {
+    let output = "<p><strong>For Loop Output:</strong></p>";
+    
+    // For loop example - counting from 1 to 5
+    for (let i = 1; i <= 5; i++) {
+        output += `<p>Count: ${i}</p>`;
+    }
+    
+    part3Output.innerHTML = output;
+});
+
+// Event listener for running while loop
+runWhileLoopBtn.addEventListener('click', function() {
+    let output = "<p><strong>While Loop Output:</strong></p>";
+    
+    // While loop example - counting from 1 to 5
+    let count = 1;
+    while (count <= 5) {
+        output += `<p>While count: ${count}</p>`;
+        count++; // Increment counter
+    }
+    
+    part3Output.innerHTML = output;
+});
+
+// ============================================
+// PART 4: DOM INTERACTIONS
+// ============================================
+
+// DOM elements for Part 4
+const textInput = document.getElementById('textInput');
+const colorSelect = document.getElementById('colorSelect');
+const updateTextBtn = document.getElementById('updateTextBtn');
+const changeBgColorBtn = document.getElementById('changeBgColorBtn');
+const addItemBtn = document.getElementById('addItemBtn');
+const resetBtn = document.getElementById('resetBtn');
+const displayText = document.getElementById('displayText');
+const itemList = document.getElementById('itemList');
+const part4Output = document.getElementById('part4Output');
+
+// DOM Interaction 1: Updating text content
+updateTextBtn.addEventListener('click', function() {
+    // Check if input is not empty
+    if (textInput.value.trim() !== "") {
+        displayText.textContent = textInput.value;
+    } else {
+        displayText.textContent = "Please enter some text first!";
+    }
+});
+
+// DOM Interaction 2: Changing element styles
+changeBgColorBtn.addEventListener('click', function() {
+    const selectedColor = colorSelect.value;
+    displayText.style.color = selectedColor;
+    
+    // Update text to reflect color change
+    displayText.textContent = `This text is now ${selectedColor}!`;
+});
+
+// DOM Interaction 3: Creating and adding new elements
+addItemBtn.addEventListener('click', function() {
+    // Create new list item element
+    const newItem = document.createElement('li');
+    const itemNumber = itemList.children.length + 1;
+    newItem.textContent = `New item ${itemNumber} added via DOM`;
+    
+    // Add the new element to the list
+    itemList.appendChild(newItem);
+});
+
+// Reset all DOM changes
+resetBtn.addEventListener('click', function() {
+    // Reset text content and styles
+    displayText.textContent = "This text will be updated based on your input.";
+    displayText.style.color = "black";
+    textInput.value = "";
+    colorSelect.value = "black";
+    
+    // Remove dynamically added list items
+    while (itemList.children.length > 2) {
+        itemList.removeChild(itemList.lastChild);
+    }
+});
+
+// ============================================
+// ADDITIONAL EXAMPLES (BONUS)
+// ============================================
+
+// Array example with loop
+const fruits = ["Apple", "Banana", "Orange", "Grape"];
+
+// Object example
+const userProfile = {
+    name: "John Doe",
+    age: 30,
+    email: "john@example.com",
+    isActive: true,
+    
+    // Method in object
+    getProfileInfo: function() {
+        return `${this.name}, ${this.age} years old`;
+    }
+};
+
+// Event listener example with parameters
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
+    
+    // Initialize with some default values
+    part1Output.innerHTML = "<p>Click the buttons above to see variable and conditional examples.</p>";
+    part2Output.innerHTML = "<p>Enter dimensions and click Calculate Area, or click Greet User.</p>";
+    part3Output.innerHTML = "<p>Click the buttons to run loop examples.</p>";
+});
+
